@@ -1,0 +1,86 @@
+analise_tecnica_custos:
+  description: >
+    Leia o arquivo 'projeto.txt' e realize uma análise técnica completa da 
+    infraestrutura proposta. Seu relatório deve conter:
+    
+    1. ANÁLISE DE PERFORMANCE:
+       - Avalie se o processamento em tempo real de 50 câmeras simultâneas é viável
+       - Calcule se 6x NVIDIA A100 são suficientes para 100 faces/segundo/câmera
+       - Identifique possíveis gargalos de latência (meta: < 500ms)
+       - Analise o bandwidth de 2Gbps se é adequado
+    
+    2. ANÁLISE DE CUSTOS:
+       - Valide se R$ 85.000/mês é uma estimativa realista para AWS
+       - Calcule o TCO (Total Cost of Ownership) para 3 anos
+       - Avalie o crescimento de armazenamento (5TB/mês) e impacto financeiro
+       - Compare com alternativas mais econômicas (edge computing, otimizações)
+    
+    3. ANÁLISE DE ESCALABILIDADE:
+       - Projete o comportamento do sistema com 100 câmeras (2x crescimento)
+       - Identifique pontos de falha únicos (single points of failure)
+       - Avalie a estratégia de backup em 3 regiões (custo x benefício)
+    
+    4. RECOMENDAÇÕES TÉCNICAS:
+       - Liste pelo menos 3 ajustes de arquitetura necessários
+       - Forneça estimativas de custo otimizadas
+       - Indique riscos técnicos que podem inviabilizar o projeto
+    
+    Seu relatório será usado pelo próximo analista para avaliação ética e legal.
+  expected_output: >
+    Um relatório técnico estruturado em formato Markdown contendo: análise de 
+    performance (viabilidade e gargalos), análise detalhada de custos com 
+    cálculos de TCO, avaliação de escalabilidade, e recomendações técnicas 
+    objetivas com pelo menos 3 sugestões de otimização. O relatório deve ter 
+    entre 800-1200 palavras e incluir dados quantitativos.
+  agent: engenheiro_confiabilidade
+  tools:
+    - FileReadTool
+  output_file: relatorio_tecnico.md
+
+analise_etica_lgpd:
+  description: >
+    Você receberá o relatório técnico do Engenheiro de Confiabilidade. Sua 
+    responsabilidade é avaliar o projeto sob a perspectiva da LGPD (Lei Geral 
+    de Proteção de Dados brasileira) e ética em IA. Analise criticamente:
+    
+    1. CONFORMIDADE COM LGPD:
+       - Dados biométricos (Art. 5º, II - dados sensíveis)
+       - Base legal para tratamento (consentimento? interesse legítimo? Art. 7º e 11)
+       - Armazenamento por 5 anos sem política de exclusão (Art. 15 e 16)
+       - Compartilhamento com terceiros (empresa de segurança) - Art. 5º, XVIII
+       - Direitos do titular: acesso, correção, exclusão (Art. 18)
+       - Nomeação de DPO (Encarregado de Dados) - Art. 41
+       - Relatório de Impacto de Proteção de Dados (RIPD) - Art. 38
+    
+    2. ÉTICA EM INTELIGÊNCIA ARTIFICIAL:
+       - VIÉS ALGORÍTMICO: O projeto menciona "viés em reconhecimento de diferentes 
+         etnias" - isso é aceitável? Quais são os riscos discriminatórios?
+       - TRANSPARÊNCIA: Funcionários são informados? Há opt-out possível?
+       - PROPORCIONALIDADE: O sistema é adequado ou excessivo para o objetivo?
+       - VIGILÂNCIA CONTÍNUA: Captura 24/7 viola privacidade dos trabalhadores?
+    
+    3. RISCOS JURÍDICOS E REPUTACIONAIS:
+       - Possibilidade de multas ANPD (até 2% do faturamento, máx R$ 50 milhões)
+       - Ações trabalhistas por violação de privacidade
+       - Dano à imagem corporativa (escândalos de vigilância abusiva)
+    
+    4. PARECER FINAL CONSOLIDADO:
+       Com base na análise técnica E na análise ética/legal, emita um parecer 
+       fundamentado recomendando:
+       - APROVAÇÃO: Projeto pode ser implementado como está
+       - REPROVAÇÃO: Projeto não deve ser implementado (riscos inaceitáveis)
+       - APROVAÇÃO COM RESSALVAS: Projeto viável SE forem implementadas as 
+         correções obrigatórias listadas
+       
+       Justifique sua decisão com base nos artigos da LGPD e princípios éticos.
+  expected_output: >
+    Um Parecer Consolidado em formato Markdown (1000-1500 palavras) contendo: 
+    análise detalhada de conformidade LGPD com citação de artigos específicos, 
+    avaliação de riscos éticos (viés, privacidade, transparência), análise de 
+    riscos jurídicos e reputacionais, e DECISÃO FINAL clara 
+    (Aprovação/Reprovação/Aprovação com Ressalvas) com justificativa completa 
+    e lista de correções obrigatórias caso aplicável.
+  agent: especialista_etica
+  context:
+    - analise_tecnica_custos
+  output_file: parecer_final.md
