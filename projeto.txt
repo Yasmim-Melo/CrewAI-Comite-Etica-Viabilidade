@@ -1,0 +1,39 @@
+PROJETO: Sistema de Reconhecimento Facial para Controle de Acesso Corporativo
+
+1. DESCRIÇÃO DO PROJETO:
+Desenvolvimento de um sistema de reconhecimento facial em tempo real para controle de acesso em edifícios corporativos. O sistema utilizará câmeras de alta resolução instaladas nas entradas principais e secundárias para identificar funcionários e visitantes automaticamente.
+
+2. ARQUITETURA PROPOSTA:
+- Processamento em tempo real de streams de vídeo de 50 câmeras simultâneas
+- Servidor de processamento de IA com GPUs dedicadas (6x NVIDIA A100)
+- Banco de dados biométrico com 10.000 perfis faciais iniciais
+- Integração com sistema de RH para atualização automática de cadastros
+- Armazenamento de logs de acesso por 5 anos
+- Processamento na nuvem AWS (região us-east-1)
+
+3. DADOS COLETADOS:
+- Imagens faciais em alta resolução (captura contínua 24/7)
+- Timestamps de entrada e saída
+- Dados pessoais: nome completo, CPF, departamento, cargo
+- Histórico completo de movimentação dentro do edifício
+- Análise de padrões comportamentais (horários, frequência, áreas acessadas)
+
+4. RECURSOS COMPUTACIONAIS:
+- Custo estimado mensal: R$ 85.000,00
+- Latência esperada: < 500ms por identificação
+- Taxa de processamento: 100 faces/segundo por câmera
+- Armazenamento total necessário: 50TB (crescimento de 5TB/mês)
+- Bandwidth estimado: 2Gbps constante
+
+5. JUSTIFICATIVA COMERCIAL:
+- Redução de custos com segurança física tradicional
+- Eliminação de cartões de acesso (economia de R$ 50.000/ano)
+- Maior controle e auditoria de acessos
+- Integração futura com sistema de ponto eletrônico
+
+6. CONSIDERAÇÕES TÉCNICAS:
+- Sistema operacional 24/7 sem janelas de manutenção planejadas
+- Backup redundante em três regiões geográficas
+- O sistema utilizará algoritmos de deep learning que podem ter viés em reconhecimento de diferentes etnias
+- Dados biométricos serão compartilhados com empresa terceirizada de segurança
+- Não há política clara de exclusão de dados após desligamento de funcionários
