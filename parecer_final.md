@@ -6,12 +6,15 @@
 ## Análise Técnica (Contexto do Agente 1)
 
 ```
-**Relatório Técnico**
+**Technical Analysis Report**
 
-**Análise de Performance**
+**Introduction**
 
-1. **Viabilidade do processamento em tempo real**: Com 50 câmeras simultâneas, o sistema precisará processar cerca de 2,5 GB/s de dados. Isso é um desafio para o servidor de processamento de IA, mesmo com GPUs dedicadas.
-2. **Capacidade das NVIDIA A100**: O processamento de 100 faces/segundo/câmera requer uma potência de processamento significativa. Calculando-se a capacidade total dos 6x NVIDIA A100, é provável que seja insuficiente para atende...
+The project aims to develop a facial recognition system for corporate building access control, utilizing high-resolution cameras and artificial intelligence (AI) processing in the cloud. This report provides a comprehensive technical analysis of the project's performance, costs, scalability, and recommendations.
+
+**Performance Analysis**
+
+1. **Processing 50 cameras in real-time**: The initial concern is whether it's feasible to process streams fro...
 ```
 
 ## Parecer Ético e Legal
